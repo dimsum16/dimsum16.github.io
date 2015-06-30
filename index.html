@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Task Overview by dimsum16</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Task Overview</h1>
+      <h2 class="project-tagline">SemEval 2016 Task 10: Detecting Minimal Semantic Units and their Meanings (DiMSUM)</h2>
+    </section>
+
+    <section class="main-content">
+      <p>The <strong>DiMSUM</strong> shared task is concerned with predicting, given an English sentence, a broad-coverage representation of lexical semantics. The representation consists of two closely connected facets: a segmentation into <strong>minimal semantic units</strong>, and a labeling of some of those units with semantic classes known as <strong>supersenses</strong>.</p>
+
+<p>For example, given the POS-tagged sentence</p>
+
+<blockquote>
+<p>I<sub><code>PRP</code></sub>  googled<sub><code>VBD</code></sub> restaurants<sub><code>NNS</code></sub> in<sub><code>IN</code></sub> the<sub><code>DT</code></sub> area<sub><code>NN</code></sub> and<sub><code>CC</code></sub> Fuji<sub><code>NNP</code></sub> Sushi<sub><code>NNP</code></sub> came<sub><code>VBD</code></sub> up<sub><code>RB</code></sub> and<sub><code>CC</code></sub> reviews<sub><code>NNS</code></sub> were<sub><code>VBD</code></sub> great<sub><code>JJ</code></sub> so<sub><code>RB</code></sub> I<sub><code>PRP</code></sub> made<sub><code>VBD</code></sub> a<sub><code>DT</code></sub> carry<sub><code>VB</code></sub> out<sub><code>RP</code></sub> order<sub><code>NN</code></sub></p>
+</blockquote>
+
+<p>the goal is to predict the representation</p>
+
+<blockquote>
+<p>I  googled<sub><code>communication</code></sub> restaurants<sub><code>GROUP</code></sub> in the  area<sub><code>LOCATION</code></sub> and  Fuji<code>_</code>Sushi<sub><code>GROUP</code></sub> came<code>_</code>up<sub><code>communication</code></sub> and  reviews<sub><code>COMMUNICATION</code></sub> were<sub><code>stative</code></sub> great so I  made<code>_</code> a  carry<code>_</code>out<sub><code>possession</code></sub> <code>_</code>order<sub><code>communication</code></sub></p>
+</blockquote>
+
+<p>where <code>lowercase</code> labels are verb supersenses, <code>UPPERCASE</code> labels are noun supersenses, and  <code>_</code> joins tokens within a multiword expression. (<em>carry</em><code>_</code><em>out</em><sub><code>possession</code></sub> and <em>made</em><code>_</code><em>order</em><sub><code>communication</code></sub> are separate MWEs.)</p>
+
+<p>The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.</p>
+
+<p>Gold standard training data labeled with the combined representation will be provided in two domains: <strong>online reviews</strong> and <strong>tweets</strong>. (Rules for using other data resources in <a href="#data-conditions">data conditions</a>.) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores; see <a href="scoring.html">scoring</a>.</p>
+
+<h2>
+<a id="minimal-semantic-units" class="anchor" href="#minimal-semantic-units" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimal semantic units</h2>
+
+<p>The word tokens of the sentence are partitioned into basic units of lexical meaning. Equivalently, where multiple tokens function together as an idiomatic whole, they are grouped together into a <strong>multiword expression</strong> (MWE). MWEs include: nominal compounds like <em>hot dog</em>; verbal expressions like <em>do away with</em> 'eliminate', <em>make decisions</em> 'decide', <em>kick the bucket</em> 'die'; PP idioms like <em>at all</em> and <em>on the spot</em> 'without planning'; multiword prepositions/connectives like <em>in front of</em> and <em>due to</em>; multiword named entities; and many other kinds.</p>
+
+<ul>
+<li>Input word tokens are never subdivided.</li>
+<li>Grouped tokens do not have to be contiguous; e.g., verb-particle constructions are annotated whether they are contiguous (<em>make up</em> the story) or gappy (<em>make</em> the story <em>up</em>). There are, however, formal constraints on gaps to facilitate sequence tagging.</li>
+<li>Combinations considered to be statistical collocations (yet compositional in meaning) are called "weak MWEs", distinguished from MWEs with idiomatic meanings ("strong MWEs"). Otherwise, different categories of MWEs are not explicitly annotated.</li>
+</ul>
+
+<p>Refer to <a href="http://www.cs.cmu.edu/%7Enschneid/mwecorpus.pdf">this LREC 2014 paper</a> for details of the MWE annotation.</p>
+
+<h2>
+<a id="semantic-classes" class="anchor" href="#semantic-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semantic classes</h2>
+
+<p>These are broad-coverage lexical categories known as "supersenses".</p>
+
+<ul>
+<li>There are 26 noun supersenses, including <code>PERSON</code>, <code>LOCATION</code>, <code>TIME</code>, <code>FOOD</code>, and <code>COMMUNICATION</code>. They cover common nouns as well as proper names (named entities).</li>
+<li>There are 15 verb supersenses, including <code>motion</code>, <code>social</code>, and <code>communication</code>.</li>
+<li>Supersense annotations always respect strong MWE annotations: the supersense class applies to the entire MWE as a unit. Of MWEs, all and only the ones that holistically function as a noun or verb expression are labeled with a supersense.</li>
+<li>Single-word noun and verb tokens also receive supersenses. E.g., instances of <em>hot dog</em> and <em>hamburger</em> would both receive the <code>FOOD</code> label.</li>
+</ul>
+
+<p>Refer to <a href="http://www.cs.cmu.edu/%7Enschneid/sst.pdf">this NAACL 2015 paper</a> for details of the annotation of supersenses on top of MWEs.</p>
+
+<h2>
+<a id="data-conditions" class="anchor" href="#data-conditions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conditions</h2>
+
+<p>There will be three conditions according to which systems will be compared.</p>
+
+<ul>
+<li>In the <strong>open</strong> condition, systems may use any and all available resources.</li>
+<li>To facilitate a controlled comparison of algorithms, in the <strong>(semi-)supervised closed</strong> conditions, systems may only use specific data resources, namely:
+
+<ul>
+<li>the labeled training data</li>
+<li>a provided set of word clusters (Brown clusters)</li>
+<li>the <a href="http://wordnet.princeton.edu/">English WordNet</a> lexicon</li>
+<li>in the <strong>semi-supervised closed</strong> condition, the <a href="https://www.yelp.com/academic_dataset">Yelp Academic Dataset</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>System submissions will specify which of these datasets were used, and this will determine which competition(s) it is entered into. Each team is allowed to submit up to 3 systems—one in the supervised closed condition, one in the semi-supervised closed condition, and one in the open condition.</p>
+
+<p>A new test set will be annotated for this task and distributed to participants shortly before the start of the evaluation period.</p>
+
+<h2>
+<a id="baseline" class="anchor" href="#baseline" aria-hidden="true"><span class="octicon octicon-link"></span></a>Baseline</h2>
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
