@@ -1,3 +1,7 @@
+---
+title: Overview . SemEval 2016 Task 10. Detecting Minimal Semantic Units and their Meanings (DiMSUM)
+---
+
 # Task Overview
 
 The __DiMSUM__ shared task is concerned with predicting, given an English sentence, a broad-coverage representation of lexical semantics. The representation consists of two closely connected facets: a segmentation into __minimal semantic units__, and a labeling of some of those units with semantic classes known as __supersenses__.
