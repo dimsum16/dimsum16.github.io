@@ -1,5 +1,5 @@
 ---
-title: SemEval 2016 Task 10: Detecting Minimal Semantic Units and their Meanings (DiMSUM)
+title: "SemEval 2016 Task 10: Detecting Minimal Semantic Units and their Meanings (DiMSUM)"
 ---
 
 The __DiMSUM__ shared task at [SemEval 2016](http://alt.qcri.org/semeval2016/) is concerned with predicting, given an English sentence, a broad-coverage representation of lexical semantics. The representation consists of two closely connected facets: a segmentation into __minimal semantic units__, and a labeling of some of those units with semantic classes known as __supersenses__.
