@@ -1,10 +1,8 @@
 ---
-title: Overview . SemEval 2016 Task 10. Detecting Minimal Semantic Units and their Meanings (DiMSUM)
+title: SemEval 2016 Task 10: Detecting Minimal Semantic Units and their Meanings (DiMSUM)
 ---
 
-# Task Overview
-
-The __DiMSUM__ shared task is concerned with predicting, given an English sentence, a broad-coverage representation of lexical semantics. The representation consists of two closely connected facets: a segmentation into __minimal semantic units__, and a labeling of some of those units with semantic classes known as __supersenses__.
+The __DiMSUM__ shared task at [SemEval 2016](http://alt.qcri.org/semeval2016/) is concerned with predicting, given an English sentence, a broad-coverage representation of lexical semantics. The representation consists of two closely connected facets: a segmentation into __minimal semantic units__, and a labeling of some of those units with semantic classes known as __supersenses__.
 
 For example, given the POS-tagged sentence
 
@@ -18,7 +16,7 @@ where `lowercase` labels are verb supersenses, `UPPERCASE` labels are noun super
 
 The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.
 
-Gold standard training data labeled with the combined representation will be provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores; see [scoring](scoring.html).
+Gold standard training data labeled with the combined representation will be provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (details of the scoring procedure will be announced at a future time).
 
 ## Minimal semantic units
 
@@ -54,4 +52,21 @@ System submissions will specify which of these datasets were used, and this will
 
 A new test set will be annotated for this task and distributed to participants shortly before the start of the evaluation period.
 
-## Baseline
+## Downloads
+
+- __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
+  * Refer to the files streusle.tags and streusle.tags.sst (which contain equivalent information, but in different formats). The formats are described in README.md.
+- A __baseline system__ and __data processing scripts__ will be provided as well.
+
+## Organization
+
+Please subscribe to https://groups.google.com/group/dimsum16 for announcements about the task.
+
+See the [schedule](http://alt.qcri.org/semeval2016/task10/index.php?id=important-dates) for planned data releases and deadlines.
+
+The organizers are:
+
+* [Nathan Schneider](http://nathan.cl), University of Edinburgh
+* [Dirk Hovy](http://dirkhovy.com/), University of Copenhagen
+* [Anders Johannsen](http://www.johannsen.com/), University of Copenhagen
+* [Marine Carpuat](http://marinecarpuat.weebly.com/), University of Maryland
