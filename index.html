@@ -5,7 +5,7 @@
     <title>SemEval 2016 Task 10: Detecting Minimal Semantic Units and their Meanings (DiMSUM) by dimsum16</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -21,16 +21,16 @@
 <p>For example, given the POS-tagged sentence</p>
 
 <blockquote>
-<p>I<sub><code>PRP</code></sub>  googled<sub><code>VBD</code></sub> restaurants<sub><code>NNS</code></sub> in<sub><code>IN</code></sub> the<sub><code>DT</code></sub> area<sub><code>NN</code></sub> and<sub><code>CC</code></sub> Fuji<sub><code>NNP</code></sub> Sushi<sub><code>NNP</code></sub> came<sub><code>VBD</code></sub> up<sub><code>RB</code></sub> and<sub><code>CC</code></sub> reviews<sub><code>NNS</code></sub> were<sub><code>VBD</code></sub> great<sub><code>JJ</code></sub> so<sub><code>RB</code></sub> I<sub><code>PRP</code></sub> made<sub><code>VBD</code></sub> a<sub><code>DT</code></sub> carry<sub><code>VB</code></sub> out<sub><code>RP</code></sub> order<sub><code>NN</code></sub></p>
+<p>I<sub><code>PRON</code></sub>  googled<sub><code>VERB</code></sub> restaurants<sub><code>NOUN</code></sub> in<sub><code>ADP</code></sub> the<sub><code>DET</code></sub> area<sub><code>NOUN</code></sub> and<sub><code>CONJ</code></sub> Fuji<sub><code>PROPN</code></sub> Sushi<sub><code>PROPN</code></sub> came<sub><code>VERB</code></sub> up<sub><code>ADV</code></sub> and<sub><code>CONJ</code></sub> reviews<sub><code>NOUN</code></sub> were<sub><code>VERB</code></sub> great<sub><code>ADJ</code></sub> so<sub><code>ADV</code></sub> I<sub><code>PRON</code></sub> made<sub><code>VERB</code></sub> a<sub><code>DET</code></sub> carry<sub><code>VERB</code></sub> out<sub><code>ADP</code></sub> order<sub><code>NOUN</code></sub></p>
 </blockquote>
 
 <p>the goal is to predict the representation</p>
 
 <blockquote>
-<p>I  googled<sub><code>communication</code></sub> restaurants<sub><code>GROUP</code></sub> in the  area<sub><code>LOCATION</code></sub> and  Fuji<code>_</code>Sushi<sub><code>GROUP</code></sub> came<code>_</code>up<sub><code>communication</code></sub> and  reviews<sub><code>COMMUNICATION</code></sub> were<sub><code>stative</code></sub> great so I  made<code>_</code> a  carry<code>_</code>out<sub><code>possession</code></sub> <code>_</code>order<sub><code>communication</code></sub></p>
+<p>I  googled<sub><code>v.communication</code></sub> restaurants<sub><code>GROUP</code></sub> in the  area<sub><code>n.location</code></sub> and  Fuji<code>_</code>Sushi<sub><code>n.group</code></sub> came<code>_</code>up<sub><code>v.communication</code></sub> and reviews<sub><code>n.communication</code></sub> were<sub><code>v.stative</code></sub> great so I  made<code>_</code> a  carry<code>_</code>out<sub><code>v.possession</code></sub> <code>_</code>order<sub><code>v.communication</code></sub></p>
 </blockquote>
 
-<p>where <code>lowercase</code> labels are verb supersenses, <code>UPPERCASE</code> labels are noun supersenses, and  <code>_</code> joins tokens within a multiword expression. (<em>carry</em><code>_</code><em>out</em><sub><code>possession</code></sub> and <em>made</em><code>_</code><em>order</em><sub><code>communication</code></sub> are separate MWEs.)</p>
+<p>Noun supersenses start with <code>n.</code>, verb supersenses with <code>v.</code>, and  <code>_</code> joins tokens within a multiword expression. (<em>carry</em><code>_</code><em>out</em><sub><code>possession</code></sub> and <em>made</em><code>_</code><em>order</em><sub><code>communication</code></sub> are separate MWEs.)</p>
 
 <p>The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.</p>
 
@@ -91,6 +91,14 @@
 
 <ul>
 <li>
+<strong><a href="https://github.com/dimsum16/dimsum-data/releases/tag/1.0">Training data v1.0</a></strong>
+
+<ul>
+<li><a href="https://github.com/dimsum16/dimsum-data/blob/1.0/README.md">README</a></li>
+<li><a href="https://github.com/dimsum16/dimsum-data/blob/1.0/TAGSET.md">TAGSET</a></li>
+</ul>
+</li>
+<li>
 <strong>Trial data</strong>: Download STREUSLE 2.0 <a href="http://www.ark.cs.cmu.edu/LexSem/">here</a>. This consists of annotated online reviews (it will eventually form part of the training set for the task).
 
 <ul>
@@ -130,4 +138,3 @@
   
   </body>
 </html>
-
