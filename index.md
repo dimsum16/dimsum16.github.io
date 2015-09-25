@@ -6,13 +6,13 @@ The __DiMSUM__ shared task at [SemEval 2016](http://alt.qcri.org/semeval2016/) i
 
 For example, given the POS-tagged sentence
 
->  I<sub>`PRP`</sub>  googled<sub>`VBD`</sub> restaurants<sub>`NNS`</sub> in<sub>`IN`</sub> the<sub>`DT`</sub> area<sub>`NN`</sub> and<sub>`CC`</sub> Fuji<sub>`NNP`</sub> Sushi<sub>`NNP`</sub> came<sub>`VBD`</sub> up<sub>`RB`</sub> and<sub>`CC`</sub> reviews<sub>`NNS`</sub> were<sub>`VBD`</sub> great<sub>`JJ`</sub> so<sub>`RB`</sub> I<sub>`PRP`</sub> made<sub>`VBD`</sub> a<sub>`DT`</sub> carry<sub>`VB`</sub> out<sub>`RP`</sub> order<sub>`NN`</sub>
+>  I<sub>`PRON`</sub>  googled<sub>`VERB`</sub> restaurants<sub>`NOUN`</sub> in<sub>`ADP`</sub> the<sub>`DET`</sub> area<sub>`NOUN`</sub> and<sub>`CONJ`</sub> Fuji<sub>`PROPN`</sub> Sushi<sub>`PROPN`</sub> came<sub>`VERB`</sub> up<sub>`ADV`</sub> and<sub>`CONJ`</sub> reviews<sub>`NOUN`</sub> were<sub>`VERB`</sub> great<sub>`ADJ`</sub> so<sub>`ADV`</sub> I<sub>`PRON`</sub> made<sub>`VERB`</sub> a<sub>`DET`</sub> carry<sub>`VERB`</sub> out<sub>`ADP`</sub> order<sub>`NOUN`</sub>
 
 the goal is to predict the representation
 
->  I  googled<sub>`communication`</sub> restaurants<sub>`GROUP`</sub> in the  area<sub>`LOCATION`</sub> and  Fuji`_`Sushi<sub>`GROUP`</sub> came`_`up<sub>`communication`</sub> and  reviews<sub>`COMMUNICATION`</sub> were<sub>`stative`</sub> great so I  made`_` a  carry`_`out<sub>`possession`</sub> `_`order<sub>`communication`</sub>
+>  I  googled<sub>`v.communication`</sub> restaurants<sub>`GROUP`</sub> in the  area<sub>`n.location`</sub> and  Fuji`_`Sushi<sub>`n.group`</sub> came`_`up<sub>`v.communication`</sub> and reviews<sub>`n.communication`</sub> were<sub>`v.stative`</sub> great so I  made`_` a  carry`_`out<sub>`v.possession`</sub> `_`order<sub>`v.communication`</sub>
 
-where `lowercase` labels are verb supersenses, `UPPERCASE` labels are noun supersenses, and  `_` joins tokens within a multiword expression. (_carry_`_`_out_<sub>`possession`</sub> and _made_`_`_order_<sub>`communication`</sub> are separate MWEs.)
+Noun supersenses start with `n.`, verb supersenses with `v.`, and  `_` joins tokens within a multiword expression. (_carry_`_`_out_<sub>`possession`</sub> and _made_`_`_order_<sub>`communication`</sub> are separate MWEs.)
 
 The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.
 
@@ -54,6 +54,9 @@ A new test set will be annotated for this task and distributed to participants s
 
 ## Downloads
 
+- __[Training data v1.0](https://github.com/dimsum16/dimsum-data/releases/tag/1.0)__
+  * [README](https://github.com/dimsum16/dimsum-data/blob/1.0/README.md)
+  * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.0/TAGSET.md)
 - __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
   * Refer to the files streusle.tags and streusle.tags.sst (which contain equivalent information, but in different formats). The formats are described in README.md.
 - A __baseline system__ and __data processing scripts__ will be provided as well.
