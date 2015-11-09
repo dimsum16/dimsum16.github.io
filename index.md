@@ -16,7 +16,7 @@ Noun supersenses start with `n.`, verb supersenses with `v.`, and  `_` joins tok
 
 The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.
 
-Gold standard training data labeled with the combined representation will be provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (details of the scoring procedure will be announced at a future time).
+Gold standard training data labeled with the combined representation will be provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (see [scoring procedure](#scoring)).
 
 ## Minimal semantic units
 
@@ -52,11 +52,15 @@ System submissions will specify which of these datasets were used, and this will
 
 A new test set will be annotated for this task and distributed to participants shortly before the start of the evaluation period.
 
+## Scoring
+
+An initial implementation of our evaluation script, [dimsumeval.py](https://github.com/dimsum16/dimsum-data/blob/master/scripts/dimsumeval.py), is bundled with the latest training data release. Primarily, it reports F-scores for MWE identification, supersense labeling, and their combination. See the documentation in the script for an overview. Further details of the scoring procedure will be announced at a future time.
+
 ## Downloads
 
-- __[Training data v1.0](https://github.com/dimsum16/dimsum-data/releases/tag/1.0)__
-  * [README](https://github.com/dimsum16/dimsum-data/blob/1.0/README.md)
-  * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.0/TAGSET.md)
+- __[Training data + scripts v1.2](https://github.com/dimsum16/dimsum-data/releases/tag/1.0)__
+  * [README](https://github.com/dimsum16/dimsum-data/blob/1.2/README.md)
+  * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.2/TAGSET.md)
 - __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
   * Refer to the files streusle.tags and streusle.tags.sst (which contain equivalent information, but in different formats). The formats are described in README.md.
 - A __baseline system__ and __data processing scripts__ will be provided as well.
