@@ -58,7 +58,7 @@ An initial implementation of our evaluation script, [dimsumeval.py](https://gith
 
 ## Downloads
 
-- __[Training data + scripts v1.2](https://github.com/dimsum16/dimsum-data/releases/tag/1.0)__
+- __[Training data + scripts v1.2](https://github.com/dimsum16/dimsum-data/releases/tag/1.2)__
   * [README](https://github.com/dimsum16/dimsum-data/blob/1.2/README.md)
   * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.2/TAGSET.md)
 - __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
