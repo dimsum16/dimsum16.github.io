@@ -34,7 +34,7 @@
 
 <p>The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.</p>
 
-<p>Gold standard training data labeled with the combined representation will be provided in two domains: <strong>online reviews</strong> and <strong>tweets</strong>. (Rules for using other data resources in <a href="#data-conditions">data conditions</a>.) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (details of the scoring procedure will be announced at a future time).</p>
+<p>Gold standard training data labeled with the combined representation will be provided in two domains: <strong>online reviews</strong> and <strong>tweets</strong>. (Rules for using other data resources in <a href="#data-conditions">data conditions</a>.) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (see <a href="#scoring">scoring procedure</a>).</p>
 
 <h2>
 <a id="minimal-semantic-units" class="anchor" href="#minimal-semantic-units" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimal semantic units</h2>
@@ -87,11 +87,16 @@
 <p>A new test set will be annotated for this task and distributed to participants shortly before the start of the evaluation period.</p>
 
 <h2>
+<a id="scoring" class="anchor" href="#scoring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scoring</h2>
+
+<p>An initial implementation of our evaluation script, <a href="https://github.com/dimsum16/dimsum-data/blob/master/scripts/dimsumeval.py">dimsumeval.py</a>, is bundled with the latest training data release. Primarily, it reports F-scores for MWE identification, supersense labeling, and their combination. See the documentation in the script for an overview. Further details of the scoring procedure will be announced at a future time.</p>
+
+<h2>
 <a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads</h2>
 
 <ul>
 <li>
-<strong><a href="https://github.com/dimsum16/dimsum-data/releases/tag/1.0">Training data v1.0</a></strong>
+<strong><a href="https://github.com/dimsum16/dimsum-data/releases/tag/1.0">Training data + scripts v1.2</a></strong>
 
 <ul>
 <li><a href="https://github.com/dimsum16/dimsum-data/blob/1.0/README.md">README</a></li>
