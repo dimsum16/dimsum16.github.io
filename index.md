@@ -63,7 +63,7 @@ An initial implementation of our evaluation script, [dimsumeval.py](https://gith
   * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.2/TAGSET.md)
 - __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
   * Refer to the files streusle.tags and streusle.tags.sst (which contain equivalent information, but in different formats). The formats are described in README.md.
-- A __baseline system__ and __data processing scripts__ will be provided as well.
+- A __baseline system__ will be provided as well.
 
 ## Organization
 
