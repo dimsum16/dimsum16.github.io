@@ -30,10 +30,10 @@ Refer to [this LREC 2014 paper](http://www.cs.cmu.edu/~nschneid/mwecorpus.pdf) f
 ## Semantic classes
 
 These are broad-coverage lexical categories known as "supersenses".
-  - There are 26 noun supersenses, including `PERSON`, `LOCATION`, `TIME`, `FOOD`, and `COMMUNICATION`. They cover common nouns as well as proper names (named entities).
-  - There are 15 verb supersenses, including `motion`, `social`, and `communication`.
+  - There are 26 noun supersenses, including `n.person`, `n.location`, `n.time`, `n.food`, and `n.communication`. They cover common nouns as well as proper names (named entities).
+  - There are 15 verb supersenses, including `v.motion`, `v.social`, and `v.communication`.
   - Supersense annotations always respect strong MWE annotations: the supersense class applies to the entire MWE as a unit. Of MWEs, all and only the ones that holistically function as a noun or verb expression are labeled with a supersense.
-  - Single-word noun and verb tokens also receive supersenses. E.g., instances of _hot dog_ and _hamburger_ would both receive the `FOOD` label.
+  - Single-word noun and verb tokens also receive supersenses. E.g., instances of _hot dog_ and _hamburger_ would both receive the `n.food` label.
 
 Refer to [this NAACL 2015 paper](http://www.cs.cmu.edu/~nschneid/sst.pdf) for details of the annotation of supersenses on top of MWEs.
 
