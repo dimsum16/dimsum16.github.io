@@ -12,11 +12,11 @@ the goal is to predict the representation
 
 >  I  googled<sub>`v.communication`</sub> restaurants<sub>`GROUP`</sub> in the  area<sub>`n.location`</sub> and  Fuji`_`Sushi<sub>`n.group`</sub> came`_`up<sub>`v.communication`</sub> and reviews<sub>`n.communication`</sub> were<sub>`v.stative`</sub> great so I  made`_` a  carry`_`out<sub>`v.possession`</sub> `_`order<sub>`v.communication`</sub>
 
-Noun supersenses start with `n.`, verb supersenses with `v.`, and  `_` joins tokens within a multiword expression. (_carry_`_`_out_<sub>`possession`</sub> and _made_`_`_order_<sub>`communication`</sub> are separate MWEs.)
+Noun supersenses start with `n.`, verb supersenses with `v.`, and  `_` joins tokens within a multiword expression. (_carry_`_`_out_<sub>`v.possession`</sub> and _made_`_`_order_<sub>`v.communication`</sub> are separate MWEs.)
 
 The two facets of the representation are discussed in greater detail below. Systems are expected to produce the both facets, though the manner in which they do this (e.g., pipeline vs. joint model) is up to you.
 
-Gold standard training data labeled with the combined representation will be provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (see [scoring procedure](#scoring)).
+Gold standard training data labeled with the combined representation is provided in two domains: __online reviews__ and __tweets__. (Rules for using other data resources in [data conditions](#data-conditions).) Blind test data will be in these two domains as well as a third, surprise domain. The domain of each sentence will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (see [scoring procedure](#scoring)).
 
 ## Minimal semantic units
 
@@ -41,26 +41,30 @@ Refer to [this NAACL 2015 paper](http://www.cs.cmu.edu/~nschneid/sst.pdf) for de
 
 There will be three conditions according to which systems will be compared.
 
-- In the __open__ condition, systems may use any and all available resources.
-- To facilitate a controlled comparison of algorithms, in the __(semi-)supervised closed__ conditions, systems may only use specific data resources, namely:
+To facilitate a controlled comparison of algorithms, in the __(semi-)supervised closed__ conditions, systems may only use specific data resources. 
+
+- In the __supervised closed__ condition, the following are permitted:
   * the labeled training data
-  * a provided set of word clusters (Brown clusters)
   * the [English WordNet](http://wordnet.princeton.edu/) lexicon
-  * in the __semi-supervised closed__ condition, the [Yelp Academic Dataset](https://www.yelp.com/academic_dataset)
+  * the following sets of word clusters (Brown clusters):
+    - yelpac-c1000-m25.gz from the [English Multiword Expression Lexicons](http://www.cs.cmu.edu/~ark/LexSem/)—this clustering was [induced](http://www.cs.cmu.edu/~ark/LexSem/mwelex/README.md) from the Yelp Academic Dataset; and/or
+    - any of the [ARK Tweet NLP clusters](http://www.cs.cmu.edu/~ark/TweetNLP/#resources)
+- In the __semi-supervised closed__ condition: all of the above are permitted, plus the [Yelp Academic Dataset](https://www.yelp.com/academic_dataset).
+- In the __open__ condition, systems may use any and all available resources.
 
 System submissions will specify which of these datasets were used, and this will determine which competition(s) it is entered into. Each team is allowed to submit up to 3 systems—one in the supervised closed condition, one in the semi-supervised closed condition, and one in the open condition.
 
-A new test set will be annotated for this task and distributed to participants shortly before the start of the evaluation period.
+A new test set has been annotated for this task. A blind version (input only) has been released in advance of the evaluation period.
 
 ## Scoring
 
-An initial implementation of our evaluation script, [dimsumeval.py](https://github.com/dimsum16/dimsum-data/blob/master/scripts/dimsumeval.py), is bundled with the latest training data release. Primarily, it reports F-scores for MWE identification, supersense labeling, and their combination. See the documentation in the script for an overview. Further details of the scoring procedure will be announced at a future time.
+Our evaluation script, [dimsumeval.py](https://github.com/dimsum16/dimsum-data/blob/master/scripts/dimsumeval.py), is bundled with the latest data release. Primarily, it reports F-scores for MWE identification, supersense labeling, and their combination. See the documentation in the script for an overview. Further details of the scoring procedure will be announced at a future time.
 
 ## Downloads
 
-- __[Training data + scripts v1.2](https://github.com/dimsum16/dimsum-data/releases/tag/1.2)__
-  * [README](https://github.com/dimsum16/dimsum-data/blob/1.2/README.md)
-  * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.2/TAGSET.md)
+- __[Training/test data + scripts v1.5](https://github.com/dimsum16/dimsum-data/releases/tag/1.5)__
+  * [README](https://github.com/dimsum16/dimsum-data/blob/1.5/README.md)
+  * [TAGSET](https://github.com/dimsum16/dimsum-data/blob/1.5/TAGSET.md)
 - __Trial data__: Download STREUSLE 2.0 [here](http://www.ark.cs.cmu.edu/LexSem/). This consists of annotated online reviews (it will eventually form part of the training set for the task).
   * Refer to the files streusle.tags and streusle.tags.sst (which contain equivalent information, but in different formats). The formats are described in README.md.
 - A __baseline system__ will be provided as well.
