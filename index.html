@@ -68,18 +68,26 @@
 
 <p>There will be three conditions according to which systems will be compared.</p>
 
+<p>To facilitate a controlled comparison of algorithms, in the <strong>(semi-)supervised closed</strong> conditions, systems may only use specific data resources. </p>
+
 <ul>
-<li>In the <strong>open</strong> condition, systems may use any and all available resources.</li>
-<li>To facilitate a controlled comparison of algorithms, in the <strong>(semi-)supervised closed</strong> conditions, systems may only use specific data resources, namely:
+<li>In the <strong>supervised closed</strong> condition, the following are permitted:
 
 <ul>
 <li>the labeled training data</li>
-<li>a provided set of word clusters (Brown clusters; details TBA)</li>
 <li>the <a href="http://wordnet.princeton.edu/">English WordNet</a> lexicon</li>
-<li>in the <strong>semi-supervised closed</strong> condition, the <a href="https://www.yelp.com/academic_dataset">Yelp Academic Dataset</a>
+<li>the following sets of word clusters (Brown clusters):
+
+<ul>
+<li>yelpac-c1000-m25.gz from the <a href="http://www.cs.cmu.edu/%7Eark/LexSem/">English Multiword Expression Lexicons</a>—this clustering was <a href="http://www.cs.cmu.edu/%7Eark/LexSem/mwelex/README.md">induced</a> from the Yelp Academic Dataset; and/or</li>
+<li>any of the <a href="http://www.cs.cmu.edu/%7Eark/TweetNLP/#resources">ARK Tweet NLP clusters</a>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li>In the <strong>semi-supervised closed</strong> condition: all of the above are permitted, plus the <a href="https://www.yelp.com/academic_dataset">Yelp Academic Dataset</a>.</li>
+<li>In the <strong>open</strong> condition, systems may use any and all available resources.</li>
 </ul>
 
 <p>System submissions will specify which of these datasets were used, and this will determine which competition(s) it is entered into. Each team is allowed to submit up to 3 systems—one in the supervised closed condition, one in the semi-supervised closed condition, and one in the open condition.</p>
