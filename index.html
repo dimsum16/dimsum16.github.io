@@ -37,7 +37,7 @@
 <p>Gold standard training data labeled with the combined representation is provided in two domains: <strong>online reviews</strong> and <strong>tweets</strong>. (Rules for using other data resources in <a href="#data-conditions">data conditions</a>.) Blind test data will be in these two domains as well as a third, surprise domain. The domain of each sentence will not be indicated as part of the input at test time. The three test domains will have equal weight in the overall system scores (see <a href="#scoring">scoring procedure</a>).</p>
 
 <h2>
-<a id="minimal-semantic-units" class="anchor" href="#minimal-semantic-units" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimal semantic units</h2>
+<a id="minimal-semantic-units" class="anchor" href="#minimal-semantic-units" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minimal semantic units</h2>
 
 <p>The word tokens of the sentence are partitioned into basic units of lexical meaning. Equivalently, where multiple tokens function together as an idiomatic whole, they are grouped together into a <strong>multiword expression</strong> (MWE). MWEs include: nominal compounds like <em>hot dog</em>; verbal expressions like <em>do away with</em> 'eliminate', <em>make decisions</em> 'decide', <em>kick the bucket</em> 'die'; PP idioms like <em>at all</em> and <em>on the spot</em> 'without planning'; multiword prepositions/connectives like <em>in front of</em> and <em>due to</em>; multiword named entities; and many other kinds.</p>
 
@@ -50,7 +50,7 @@
 <p>Refer to <a href="http://www.cs.cmu.edu/%7Enschneid/mwecorpus.pdf">this LREC 2014 paper</a> for details of the MWE annotation.</p>
 
 <h2>
-<a id="semantic-classes" class="anchor" href="#semantic-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semantic classes</h2>
+<a id="semantic-classes" class="anchor" href="#semantic-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Semantic classes</h2>
 
 <p>These are broad-coverage lexical categories known as "supersenses".</p>
 
@@ -64,7 +64,7 @@
 <p>Refer to <a href="http://www.cs.cmu.edu/%7Enschneid/sst.pdf">this NAACL 2015 paper</a> for details of the annotation of supersenses on top of MWEs.</p>
 
 <h2>
-<a id="data-conditions" class="anchor" href="#data-conditions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conditions</h2>
+<a id="data-conditions" class="anchor" href="#data-conditions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data conditions</h2>
 
 <p>There will be three conditions according to which systems will be compared.</p>
 
@@ -95,12 +95,12 @@
 <p>A new test set has been annotated for this task. A blind version (input only) has been released in advance of the evaluation period.</p>
 
 <h2>
-<a id="scoring" class="anchor" href="#scoring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scoring</h2>
+<a id="scoring" class="anchor" href="#scoring" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scoring</h2>
 
 <p>Our evaluation script, <a href="https://github.com/dimsum16/dimsum-data/blob/master/scripts/dimsumeval.py">dimsumeval.py</a>, is bundled with the latest data release. Primarily, it reports F-scores for MWE identification, supersense labeling, and their combination. See the documentation in the script for an overview. Further details of the scoring procedure will be announced at a future time.</p>
 
 <h2>
-<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads</h2>
+<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloads</h2>
 
 <ul>
 <li>
@@ -122,7 +122,29 @@
 </ul>
 
 <h2>
-<a id="organization" class="anchor" href="#organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organization</h2>
+<a id="system-submission" class="anchor" href="#system-submission" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Submission</h2>
+
+<p>The deadline for system outputs to be submitted is <strong>Jan. 31, 2016</strong>. Instructions:</p>
+
+<ol>
+<li>Create a .zip file containing:
+
+<ul>
+<li>
+<strong>dimsum16.test.pred</strong>, your system's output. Each line should correspond to a line in dimsum16.test.blind, with values filled into the appropriate columns. You should run the evaluation script (with a dummy gold standard) to ensure your system output is formatted correctly.</li>
+<li>
+<a href="https://raw.githubusercontent.com/dimsum16/dimsum-data/master/submission.csv">submission.csv</a>, but filled out with a specification of the resources used for the submission.</li>
+</ul>
+</li>
+<li>Create a <a href="https://www.softconf.com/naacl2016/SemEval2016/user/">new START submission</a> (requires an account). Provide the team name and members, select Task 10, and write a short blurb about your system. Upload the zip file.</li>
+<li>After creating your submission, you may update it (both metadata and zip file) up until the deadline. Only the last file upload for that submission will be retained.</li>
+<li>Each team may enter up to 3 submissions, one per data condition. Specify the same team name for all of them, and ensure the submission.csv is different for the different conditions. If multiple submissions from the same team fall under the same data condition, the last one will be used for the evaluation.</li>
+</ol>
+
+<p>We plan to make all submissions—including the test set predictions—public at some point subsequent to the task. (If there are institutional barriers to this, please contact the organizers.)</p>
+
+<h2>
+<a id="organization" class="anchor" href="#organization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Organization</h2>
 
 <p>Please subscribe to <a href="https://groups.google.com/group/dimsum16">https://groups.google.com/group/dimsum16</a> for announcements about the task.</p>
 
